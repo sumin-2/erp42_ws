@@ -1,0 +1,3 @@
+[console_scripts]
+front_camera_viewer = erp42_description.front_camera_viewer:main
+

@@ -1,0 +1,10 @@
+Metadata-Version: 1.2
+Name: erp42-description
+Version: 0.1.0
+Summary: ERP42 robot description package using xacro and Gazebo
+Home-page: UNKNOWN
+Maintainer: Sumin
+Maintainer-email: sumin@example.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN

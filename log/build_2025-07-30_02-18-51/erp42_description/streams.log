@@ -1,0 +1,56 @@
+[0.707s] Invoking command in '/home/sumin/erp42_ws/src/erp42_description': PYTHONPATH=/home/sumin/erp42_ws/build/erp42_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sumin/erp42_ws/install/erp42_description/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/erp42_description build --build-base /home/sumin/erp42_ws/build/erp42_description/build install --record /home/sumin/erp42_ws/build/erp42_description/install.log --install-scripts $base/lib/erp42_description --single-version-externally-managed install_data
+[0.910s] running egg_info
+[0.910s] creating ../../build/erp42_description/erp42_description.egg-info
+[0.911s] writing ../../build/erp42_description/erp42_description.egg-info/PKG-INFO
+[0.912s] writing dependency_links to ../../build/erp42_description/erp42_description.egg-info/dependency_links.txt
+[0.912s] writing entry points to ../../build/erp42_description/erp42_description.egg-info/entry_points.txt
+[0.912s] writing requirements to ../../build/erp42_description/erp42_description.egg-info/requires.txt
+[0.913s] writing top-level names to ../../build/erp42_description/erp42_description.egg-info/top_level.txt
+[0.916s] writing manifest file '../../build/erp42_description/erp42_description.egg-info/SOURCES.txt'
+[0.943s] reading manifest file '../../build/erp42_description/erp42_description.egg-info/SOURCES.txt'
+[0.944s] writing manifest file '../../build/erp42_description/erp42_description.egg-info/SOURCES.txt'
+[0.945s] running build
+[0.945s] running build_py
+[0.945s] creating /home/sumin/erp42_ws/build/erp42_description/build
+[0.945s] creating /home/sumin/erp42_ws/build/erp42_description/build/lib
+[0.945s] creating /home/sumin/erp42_ws/build/erp42_description/build/lib/erp42_description
+[0.945s] copying erp42_description/__init__.py -> /home/sumin/erp42_ws/build/erp42_description/build/lib/erp42_description
+[0.946s] copying erp42_description/front_camera_viewer.py -> /home/sumin/erp42_ws/build/erp42_description/build/lib/erp42_description
+[0.946s] running install
+[0.947s] running install_lib
+[0.948s] creating /home/sumin/erp42_ws/install/erp42_description/lib/python3.8/site-packages/erp42_description
+[0.948s] copying /home/sumin/erp42_ws/build/erp42_description/build/lib/erp42_description/__init__.py -> /home/sumin/erp42_ws/install/erp42_description/lib/python3.8/site-packages/erp42_description
+[0.948s] copying /home/sumin/erp42_ws/build/erp42_description/build/lib/erp42_description/front_camera_viewer.py -> /home/sumin/erp42_ws/install/erp42_description/lib/python3.8/site-packages/erp42_description
+[0.948s] byte-compiling /home/sumin/erp42_ws/install/erp42_description/lib/python3.8/site-packages/erp42_description/__init__.py to __init__.cpython-38.pyc
+[0.949s] byte-compiling /home/sumin/erp42_ws/install/erp42_description/lib/python3.8/site-packages/erp42_description/front_camera_viewer.py to front_camera_viewer.cpython-38.pyc
+[0.950s] running install_data
+[0.950s] creating /home/sumin/erp42_ws/install/erp42_description/share/ament_index
+[0.950s] creating /home/sumin/erp42_ws/install/erp42_description/share/ament_index/resource_index
+[0.950s] creating /home/sumin/erp42_ws/install/erp42_description/share/ament_index/resource_index/packages
+[0.950s] copying resource/erp42_description -> /home/sumin/erp42_ws/install/erp42_description/share/ament_index/resource_index/packages
+[0.951s] copying package.xml -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description
+[0.952s] creating /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/worlds
+[0.952s] copying worlds/erp42_with_cone.world -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/worlds
+[0.953s] copying worlds/cone1.world -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/worlds
+[0.954s] creating /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/launch
+[0.954s] copying launch/erp42_simulation.launch.py -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/launch
+[0.955s] copying launch/cone_simulation.launch.py -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/launch
+[0.955s] creating /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/urdf
+[0.955s] copying urdf/macros_erp42.xacro -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/urdf
+[0.956s] copying urdf/erp42.urdf.xacro -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/urdf
+[0.956s] creating /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/meshes
+[0.956s] copying meshes/erp42_structure.dae -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/meshes
+[1.087s] copying meshes/caucho.dae -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/meshes
+[1.176s] copying meshes/slope.dae -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/meshes
+[1.176s] copying meshes/steer_wheel.dae -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/meshes
+[1.176s] copying meshes/caucho_right.dae -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/meshes
+[1.264s] copying meshes/disk.dae -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/meshes
+[1.274s] creating /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/config
+[1.274s] copying config/erp42_controller_flat.yaml -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/config
+[1.275s] copying config/erp42_controller_config.yaml -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/config
+[1.275s] running install_egg_info
+[1.276s] Copying ../../build/erp42_description/erp42_description.egg-info to /home/sumin/erp42_ws/install/erp42_description/lib/python3.8/site-packages/erp42_description-0.1.0-py3.8.egg-info
+[1.277s] running install_scripts
+[1.291s] Installing front_camera_viewer script to /home/sumin/erp42_ws/install/erp42_description/lib/erp42_description
+[1.292s] writing list of installed files to '/home/sumin/erp42_ws/build/erp42_description/install.log'
+[1.312s] Invoked command in '/home/sumin/erp42_ws/src/erp42_description' returned '0': PYTHONPATH=/home/sumin/erp42_ws/build/erp42_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sumin/erp42_ws/install/erp42_description/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/erp42_description build --build-base /home/sumin/erp42_ws/build/erp42_description/build install --record /home/sumin/erp42_ws/build/erp42_description/install.log --install-scripts $base/lib/erp42_description --single-version-externally-managed install_data
