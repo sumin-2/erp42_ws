@@ -1,0 +1,18 @@
+[0.548s] Invoking command in '/home/sumin/erp42_ws/build/erp42_description': PYTHONPATH=/home/sumin/erp42_ws/build/erp42_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sumin/erp42_ws/install/erp42_description/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/sumin/erp42_ws/build/erp42_description/build --no-deps symlink_data
+[0.737s] running develop
+[0.851s] running egg_info
+[0.851s] writing erp42_description.egg-info/PKG-INFO
+[0.852s] writing dependency_links to erp42_description.egg-info/dependency_links.txt
+[0.852s] writing entry points to erp42_description.egg-info/entry_points.txt
+[0.853s] writing requirements to erp42_description.egg-info/requires.txt
+[0.853s] writing top-level names to erp42_description.egg-info/top_level.txt
+[0.882s] reading manifest file 'erp42_description.egg-info/SOURCES.txt'
+[0.883s] writing manifest file 'erp42_description.egg-info/SOURCES.txt'
+[0.911s] running build_ext
+[0.911s] Creating /home/sumin/erp42_ws/install/erp42_description/lib/python3.8/site-packages/erp42-description.egg-link (link to .)
+[0.913s] Installing front_camera_viewer script to /home/sumin/erp42_ws/install/erp42_description/lib/erp42_description
+[0.913s] Installing steering_drive_bridge script to /home/sumin/erp42_ws/install/erp42_description/lib/erp42_description
+[0.913s] 
+[0.913s] Installed /home/sumin/erp42_ws/build/erp42_description
+[0.913s] running symlink_data
+[0.939s] Invoked command in '/home/sumin/erp42_ws/build/erp42_description' returned '0': PYTHONPATH=/home/sumin/erp42_ws/build/erp42_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sumin/erp42_ws/install/erp42_description/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/sumin/erp42_ws/build/erp42_description/build --no-deps symlink_data

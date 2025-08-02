@@ -1,28 +1,25 @@
 <?xml version="1.0"?>
 <robot name="erp42" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:arg name="pkg_share"        default=""/>
+  <xacro:arg name="pkg_share" default=""/>
   <xacro:arg name="controllers_file" default=""/>
 
   <xacro:include filename="$(arg pkg_share)/urdf/macros_erp42.xacro"/>
-  <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-OK-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+  <xacro:include filename="$(arg pkg_share)/urdf/erp42_control.gazebo" />
+
   <link name="structure">
-    
     <visual name="visual">
       <origin xyz="0 0 -0.03" rpy="0 0 3.14" />
       <geometry>
         <mesh filename="$(arg pkg_share)/meshes/erp42_structure.dae" scale="1 1 1"/>
       </geometry>
     </visual>
-
     <collision>
       <geometry>
-      <!--<box size=" 1.0 1.0 0.2"/>-->
-      <mesh filename="$(arg pkg_share)/meshes/erp42_structure.dae" scale="1 1 1"/>
+        <mesh filename="$(arg pkg_share)/meshes/erp42_structure.dae" scale="1 1 1"/>
       </geometry>
-         <origin xyz="0 0 -0.03" rpy=" 0 0 3.14" />
+      <origin xyz="0 0 -0.03" rpy="0 0 3.14" />
     </collision>
-    
     <inertial>
       <mass value="160"/>
       <origin xyz="0 0 0" />
@@ -30,76 +27,91 @@
     </inertial>
   </link>
 
-<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+  <!-- steering links with visual for debug -->
+  <link name="lf_front_steer_link">
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.02"/>
+      </geometry>
+      <material name="steer_green">
+        <color rgba="0 1 0 0.5"/>
+      </material>
+    </visual>
+  </link>
+  <link name="rf_front_steer_link">
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.02"/>
+      </geometry>
+      <material name="steer_blue">
+        <color rgba="0 0 1 0.5"/>
+      </material>
+    </visual>
+  </link>
 
-<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxXXXXXX  LINK  XXXXXXXXXxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-  <xacro:wheel prefix="right" suffix="front" x="0" y="0" z="0" pitch="0" yaw="1.5707"/> 
+  <!-- steering hinge joints -->
+  <joint name="lf_steering_hinge_joint" type="revolute">
+    <parent link="structure"/>
+    <child link="lf_front_steer_link"/>
+    <origin xyz="0.53 0.51 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.52" upper="0.52" effort="5.0" velocity="1.0"/>
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <joint name="rf_steering_hinge_joint" type="revolute">
+    <parent link="structure"/>
+    <child link="rf_front_steer_link"/>
+    <origin xyz="0.53 -0.51 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.52" upper="0.52" effort="5.0" velocity="1.0"/>
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <!-- front wheels (under steer links) -->
+  <xacro:wheel prefix="right" suffix="front" x="0" y="0" z="0" pitch="0" yaw="1.5707"/>
+  <xacro:wheel prefix="left" suffix="front" x="0" y="0" z="0" pitch="0" yaw="-1.5707"/>
+
+  <xacro:wheel_joint prefix="right" suffix="front" parent_link="rf_front_steer_link" x="0" y="0" z="0"/>
+  <xacro:wheel_joint prefix="left" suffix="front" parent_link="lf_front_steer_link" x="0" y="0" z="0"/>
+
+  <!-- rear disk wheels and driven wheels -->
+  <xacro:disk_wheel prefix="right" suffix="back" roll="0" pitch="0" yaw="1.5707"/>
+  <xacro:disk_wheel prefix="left" suffix="back" roll="0" pitch="0" yaw="-1.5707" with_gazebo="true"/>
+
+  <xacro:back_disk_wheel_joint prefix="right" suffix="back" x="-0.49" y="0.51" z="0"/>
+  <xacro:back_disk_wheel_joint prefix="left" suffix="back" x="-0.49" y="-0.51" z="0"/>
+
   <xacro:wheel prefix="right" suffix="back" x="0" y="0" z="0" pitch="0" yaw="1.5707"/>
-  <xacro:wheel prefix="left" suffix="front" x="0" y="0" z="0" pitch="3.1414" yaw="1.5707"/>
-  <xacro:wheel prefix="left" suffix="back" x="0" y="0" z="0" pitch="3.1414" yaw="1.5707"/>
-  <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  DISK LINK  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-  <xacro:disk_wheel prefix="right" suffix="front" roll="0" pitch="0" yaw="1.5707"/>  <!--yall value is only for visual -->
-  <xacro:disk_wheel prefix="left" suffix="front" roll="0" pitch="0" yaw="-1.5707"/>  <!--yall value is only for visual -->
+  <xacro:wheel prefix="left" suffix="back" x="0" y="0" z="0" pitch="0" yaw="-1.5707"/>
 
-  <xacro:disk_wheel prefix="right" suffix="back" roll="0" pitch="0" yaw="1.5707"/>  <!--yall value is only for visual -->
-  <xacro:disk_wheel prefix="left" suffix="back" roll="0" pitch="0" yaw="-1.5707" with_gazebo="true"/>  <!--yall value is only for visual -->
+  <xacro:wheel_joint prefix="right" suffix="back" parent_link="right_back_disk_wheel" x="0" y="0" z="0"/>
+  <xacro:wheel_joint prefix="left" suffix="back" parent_link="left_back_disk_wheel" x="0" y="0" z="0"/>
 
-  <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  actuator  1  2   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-  <xacro:wheel_joint prefix="right" suffix="front" x="0" y="0.08" z="0" /> <!--rotation in y axes, wheel connect with the front disk-->
-  <xacro:wheel_joint prefix="left" suffix="front" x="0" y="-0.08" z="0"/>  <!--rotation in y axes, wheel connect with the front disk-->
-  <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  actuator  3  4   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-  <xacro:wheel_joint prefix="right" suffix="back" x="0" y="0.08" z="0" />   <!--rotation in y axes wheel connect with the back disk-->
-  <xacro:wheel_joint prefix="left" suffix="back" x="0" y="-0.08" z="0" />   <!--rotation in y axes wheel connect with the back disk-->
-  <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  actuator 5 6  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-  <xacro:front_disk_wheel_joint prefix="right" suffix="front" x="0.53" y="0.51" z="0"/>  <!--disk rotation in z axes, disk connect with structure-->
-  <xacro:front_disk_wheel_joint prefix="left"  suffix="front" x="0.53" y="-0.51" z="0"/> <!--disk rotation in z axes, disk connect with structure-->
-  <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  fixed  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-  <xacro:back_disk_wheel_joint prefix="right" suffix="back" x="-0.49" y="0.51" z="0"/>  <!--disk rotation in z axes, disk connect with structure-->
-  <xacro:back_disk_wheel_joint prefix="left" suffix="back" x="-0.49" y="-0.51" z="0"/> <!--disk rotation in z axes, disk connect with structure-->
+  <!-- cameras -->
+  <xacro:my_camera prefix="middle"/>
+  <xacro:my_camera prefix="right"/>
+  <xacro:my_camera prefix="left"/>
+  <xacro:my_camera prefix="back"/>
+  <xacro:camera_joint prefix="middle" x="1.0" y="0" z="0.3" roll="0" pitch="0" yaw="0"/>
+  <xacro:camera_joint prefix="left" x="0.05" y="0.10" z="0.3" roll="0" pitch="0" yaw="0.785"/>
+  <xacro:camera_joint prefix="right" x="0.05" y="-0.10" z="0.3" roll="0" pitch="0" yaw="-0.785"/>
+  <xacro:camera_joint prefix="back" x="-0.05" y="0" z="0.4" roll="0" pitch="0" yaw="3.1414"/>
 
-  <xacro:my_camera prefix="middle" /> <!-- camera link we cant use the name camera due to create a confuse with gazebo and presente the problem with 
-	invalided parameter name--> 
-  <xacro:my_camera prefix="right" /> <!-- camera link we cant use the name camera due to create a confuse with gazebo and presente the problem with 
-	invalided parameter name--> 
-  <xacro:my_camera prefix="left" /> <!-- camera link we cant use the name camera due to create a confuse with gazebo and presente the problem with 
-	invalided parameter name--> 
-  <xacro:my_camera prefix="back" /> <!-- camera link we cant use the name camera due to create a confuse with gazebo and presente the problem with 
-	invalided parameter name--> 
-  <xacro:camera_joint prefix="middle" x="1.0" y="0" z="0.3" roll="0" pitch="0" yaw="0"/> <!--camera joint-->
-  <xacro:camera_joint prefix="left" x="0.05" y="0.10" z="0.3" roll="0" pitch="0" yaw="0.785"/> <!--camera joint-->
-  <xacro:camera_joint prefix="right" x="0.05" y="-0.10" z="0.3" roll="0" pitch="0" yaw="-0.785"/> <!--camera joint-->
-  <xacro:camera_joint prefix="back" x="-0.05" y="0" z="0.4" roll="0" pitch="0" yaw="3.1414"/> <!--camera joint-->
 
-  <gazebo>
-    <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_diff_drive.so">
-      <ros>
-        <namespace>/</namespace>
-        <argument>/cmd_vel:=cmd_vel</argument>
-        <argument>/odom:=odom</argument>
-      </ros>
-
-      <update_rate>100.0</update_rate>
-      <num_wheel_pairs>2</num_wheel_pairs>
-      <odometry_frame>odom</odometry_frame>
-
-      <left_joint>left_front_wheel_joint</left_joint>
-      <left_joint>left_back_wheel_joint</left_joint>
-      <right_joint>right_front_wheel_joint</right_joint>
-      <right_joint>right_back_wheel_joint</right_joint>
-
-      <wheel_separation>1.02</wheel_separation>
-      <wheel_diameter>0.56</wheel_diameter>
-      <robot_base_frame>structure</robot_base_frame>
-
-      <max_wheel_torque>15</max_wheel_torque>
-
-      <publish_odom>true</publish_odom>
-      <publish_odom_tf>true</publish_odom_tf>
-      <publish_wheel_tf>false</publish_wheel_tf>
-    </plugin>
-  </gazebo>
-
-<!-- left_camera -->
+  <!-- camera plugins -->
   <gazebo reference="left_camera">
     <sensor type="camera" name="left_camera1">
       <update_rate>30.0</update_rate>
@@ -111,9 +123,6 @@
           <format>R8G8B8</format>
           <noise>
             <type>gaussian</type>
-          <!-- Noise is sampled independently per pixel on each frame.
-               That pixel's noise value is added to each of its color
-               channels, which at that point lie in the range [0,1]. -->
             <mean>0.0</mean>
             <stddev>0.007</stddev>
           </noise>
@@ -140,7 +149,6 @@
     </sensor>
   </gazebo>
 
-<!-- right_camera -->
   <gazebo reference="right_camera">
     <sensor type="camera" name="right_camera2">
       <update_rate>30.0</update_rate>
@@ -152,9 +160,6 @@
           <format>R8G8B8</format>
           <noise>
             <type>gaussian</type>
-          <!-- Noise is sampled independently per pixel on each frame.
-               That pixel's noise value is added to each of its color
-               channels, which at that point lie in the range [0,1]. -->
             <mean>0.0</mean>
             <stddev>0.007</stddev>
           </noise>
@@ -181,10 +186,8 @@
     </sensor>
   </gazebo>
 
-<!-- middle_camera -->
   <gazebo reference="middle_camera">
     <sensor type="camera" name="middle_camera3">
-      <pose>0 0 0 0 0 0</pose> 
       <update_rate>30.0</update_rate>
       <camera name="head">
         <horizontal_fov>1.3962634</horizontal_fov>
@@ -194,9 +197,6 @@
           <format>R8G8B8</format>
           <noise>
             <type>gaussian</type>
-          <!-- Noise is sampled independently per pixel on each frame.
-               That pixel's noise value is added to each of its color
-               channels, which at that point lie in the range [0,1]. -->
             <mean>0.0</mean>
             <stddev>0.007</stddev>
           </noise>          
@@ -223,8 +223,6 @@
     </sensor>
   </gazebo>
 
-
-<!-- back_camera -->
   <gazebo reference="back_camera">
     <sensor type="camera" name="back_camera4">
       <update_rate>30.0</update_rate>
@@ -236,9 +234,6 @@
           <format>R8G8B8</format>
           <noise>
             <type>gaussian</type>
-            <!-- Noise is sampled independently per pixel on each frame.
-               That pixel's noise value is added to each of its color
-               channels, which at that point lie in the range [0,1]. -->
             <mean>0.0</mean>
             <stddev>0.007</stddev>
           </noise>
@@ -297,4 +292,3 @@
     </sensor>
   </gazebo>
 </robot>
-   

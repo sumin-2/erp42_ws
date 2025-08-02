@@ -13,7 +13,9 @@ setup(
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/worlds', glob(os.path.join('worlds', '*.world'))),
         ('share/' + package_name + '/launch', glob(os.path.join('launch', '*.py'))),
-        ('share/' + package_name + '/urdf', glob(os.path.join('urdf', '*.xacro'))),
+        ('share/' + package_name + '/urdf',
+            glob(os.path.join('urdf', '*.xacro')) +
+            glob(os.path.join('urdf', '*.gazebo'))),
         ('share/' + package_name + '/meshes', glob(os.path.join('meshes', '*'))),
         ('share/' + package_name + '/config', glob(os.path.join('config', '*.yaml'))),
     ],
@@ -27,6 +29,7 @@ setup(
     entry_points={
         'console_scripts': [
             "front_camera_viewer = erp42_description.front_camera_viewer:main",
+            'steering_drive_bridge = erp42_description.steering_drive_bridge:main',
         ],
     },
 )

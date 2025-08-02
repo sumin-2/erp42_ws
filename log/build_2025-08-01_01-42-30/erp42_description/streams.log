@@ -1,0 +1,46 @@
+[0.573s] Invoking command in '/home/sumin/erp42_ws/build/erp42_description': PYTHONPATH=/home/sumin/erp42_ws/build/erp42_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sumin/erp42_ws/install/erp42_description/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/sumin/erp42_ws/build/erp42_description/build --no-deps symlink_data
+[0.795s] running develop
+[0.906s] running egg_info
+[0.906s] creating erp42_description.egg-info
+[0.906s] writing erp42_description.egg-info/PKG-INFO
+[0.907s] writing dependency_links to erp42_description.egg-info/dependency_links.txt
+[0.908s] writing entry points to erp42_description.egg-info/entry_points.txt
+[0.908s] writing requirements to erp42_description.egg-info/requires.txt
+[0.908s] writing top-level names to erp42_description.egg-info/top_level.txt
+[0.909s] writing manifest file 'erp42_description.egg-info/SOURCES.txt'
+[0.934s] reading manifest file 'erp42_description.egg-info/SOURCES.txt'
+[0.935s] writing manifest file 'erp42_description.egg-info/SOURCES.txt'
+[0.965s] running build_ext
+[0.965s] Creating /home/sumin/erp42_ws/install/erp42_description/lib/python3.8/site-packages/site.py
+[0.966s] Creating /home/sumin/erp42_ws/install/erp42_description/lib/python3.8/site-packages/erp42-description.egg-link (link to .)
+[0.967s] Installing front_camera_viewer script to /home/sumin/erp42_ws/install/erp42_description/lib/erp42_description
+[0.967s] Installing steering_drive_bridge script to /home/sumin/erp42_ws/install/erp42_description/lib/erp42_description
+[0.967s] 
+[0.967s] Installed /home/sumin/erp42_ws/build/erp42_description
+[0.967s] running symlink_data
+[0.967s] creating /home/sumin/erp42_ws/install/erp42_description/share/ament_index
+[0.967s] creating /home/sumin/erp42_ws/install/erp42_description/share/ament_index/resource_index
+[0.968s] creating /home/sumin/erp42_ws/install/erp42_description/share/ament_index/resource_index/packages
+[0.968s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/resource/erp42_description -> /home/sumin/erp42_ws/install/erp42_description/share/ament_index/resource_index/packages
+[0.968s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/package.xml -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description
+[0.968s] creating /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/worlds
+[0.968s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/worlds/erp42_with_cone.world -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/worlds
+[0.968s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/worlds/cone1.world -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/worlds
+[0.968s] creating /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/launch
+[0.968s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/launch/erp42_simulation.launch.py -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/launch
+[0.968s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/launch/cone_simulation.launch.py -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/launch
+[0.968s] creating /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/urdf
+[0.968s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/urdf/macros_erp42.xacro -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/urdf
+[0.969s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/urdf/erp42.urdf.xacro -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/urdf
+[0.973s] creating /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/meshes
+[0.973s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/meshes/erp42_structure.dae -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/meshes
+[0.973s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/meshes/caucho.dae -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/meshes
+[0.973s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/meshes/slope.dae -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/meshes
+[0.973s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/meshes/steer_wheel.dae -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/meshes
+[0.973s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/meshes/caucho_right.dae -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/meshes
+[0.973s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/meshes/disk.dae -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/meshes
+[0.973s] creating /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/config
+[0.973s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/config/erp42_controller_flat.yaml -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/config
+[0.973s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/config/erp42_controller_config.yaml -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/config
+[0.973s] symbolically linking /home/sumin/erp42_ws/build/erp42_description/config/erp42_controllers.yaml -> /home/sumin/erp42_ws/install/erp42_description/share/erp42_description/config
+[0.998s] Invoked command in '/home/sumin/erp42_ws/build/erp42_description' returned '0': PYTHONPATH=/home/sumin/erp42_ws/build/erp42_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sumin/erp42_ws/install/erp42_description/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/sumin/erp42_ws/build/erp42_description/build --no-deps symlink_data

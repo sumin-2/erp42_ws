@@ -8,10 +8,14 @@ setup.py
 ../../build/erp42_description/erp42_description.egg-info/requires.txt
 ../../build/erp42_description/erp42_description.egg-info/top_level.txt
 ../../build/erp42_description/erp42_description.egg-info/zip-safe
+config/ackermann_controller.yaml
 config/erp42_controller_config.yaml
 config/erp42_controller_flat.yaml
+config/erp42_controllers.yaml
 erp42_description/__init__.py
+erp42_description/cone1.py
 erp42_description/front_camera_viewer.py
+erp42_description/steering_drive_bridge.py
 erp42_description.egg-info/PKG-INFO
 erp42_description.egg-info/SOURCES.txt
 erp42_description.egg-info/dependency_links.txt
@@ -29,6 +33,7 @@ meshes/slope.dae
 meshes/steer_wheel.dae
 resource/erp42_description
 urdf/erp42.urdf.xacro
+urdf/erp42_control.gazebo
 urdf/macros_erp42.xacro
 worlds/cone1.world
 worlds/erp42_with_cone.world

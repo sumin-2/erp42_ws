@@ -1,28 +1,16 @@
-'/joint_state_broadcaster':
+joint_state_broadcaster:
   ros__parameters:
-    type: joint_state_broadcaster/JointStateBroadcaster
+    use_sim_time: true
 
-'/diff_cont':
+forward_position_controller:
   ros__parameters:
-    type: diff_drive_controller/DiffDriveController
-    base_frame_id: structure
-    left_wheel_names: ["left_front_wheel_joint", "left_back_wheel_joint"]
-    right_wheel_names: ["right_front_wheel_joint", "right_back_wheel_joint"]
-    wheel_separation: 0.6
-    wheel_radius: 0.28
+    type: forward_command_controller/ForwardCommandController
+    joints: [lf_steering_hinge_joint, rf_steering_hinge_joint]
+    interface_name: position
+    use_sim_time: true
 
-    linear.x.has_velocity_limits: true
-    linear.x.max_velocity: 0.2
-    linear.x.has_acceleration_limits: true
-    linear.x.max_acceleration: 0.6
-
-    angular.z.has_velocity_limits: true
-    angular.z.max_velocity: 2.0
-    angular.z.has_acceleration_limits: true
-    angular.z.max_acceleration: 6.0
-
-    pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.03]
-    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.03]
-
-    use_stamped_cmd_vel: false
- 
+velocity_controller:
+  ros__parameters:
+    type: velocity_controllers/JointGroupVelocityController
+    joints: [left_front_wheel_joint, left_back_wheel_joint, right_front_wheel_joint, right_back_wheel_joint]
+    use_sim_time: true

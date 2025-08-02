@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- 1) ros2_control 하드웨어 인터페이스 -->
+  <ros2_control name="erp42_system" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+
+    <!-- 후륜 구동: velocity interface -->
+    <joint name="left_back_wheel_joint">
+      <command_interface name="velocity"/>
+      <state_interface   name="position"/>
+      <state_interface   name="velocity"/>
+      <state_interface   name="effort"/>
+      <plugin filename="libgazebo_ros2_control.so" name="left_back_wheel_dynamics">
+        <dynamics>
+          <damping>0.5</damping>    <!-- 감쇠 계수 -->
+          <friction>0.1</friction>  <!-- 마찰 계수 -->
+        </dynamics>
+      </plugin>      
+    </joint>
+    <joint name="right_back_wheel_joint">
+      <command_interface name="velocity"/>
+      <state_interface   name="position"/>
+      <state_interface   name="velocity"/>
+      <state_interface   name="effort"/>
+      <plugin filename="libgazebo_ros2_control.so" name="right_back_wheel_dynamics">
+        <dynamics>
+          <damping>0.5</damping>
+          <friction>0.1</friction>
+        </dynamics>
+      </plugin>
+    </joint>
+
+    <!-- 전륜 조향: position interface -->
+    <joint name="lf_steering_hinge_joint">
+      <command_interface name="position">
+        <param name="min">-0.5</param>
+        <param name="max"> 0.5</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+      <plugin filename="libgazebo_ros2_control.so" name="lf_steering_dynamics">
+        <dynamics>
+          <damping>1.0</damping>
+          <friction>0.2</friction>
+        </dynamics>
+      </plugin>
+    </joint>
+    <joint name="rf_steering_hinge_joint">
+      <command_interface name="position">
+        <param name="min">-0.5</param>
+        <param name="max"> 0.5</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+      <plugin filename="libgazebo_ros2_control.so" name="rf_steering_dynamics">
+        <dynamics>
+          <damping>1.0</damping>
+          <friction>0.2</friction>
+        </dynamics>
+      </plugin>
+    </joint>
+  </ros2_control>
+
+  <!-- 2) Gazebo 플러그인: controller manager 로드 -->
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <parameters>$(find erp42_description)/config/ackermann_controller.yaml</parameters>
+    </plugin>
+  </gazebo>
+</robot>
