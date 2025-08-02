@@ -1,1 +1,0 @@
-/home/sumin/erp42_ws/src/erp42_description/launch/cone_simulation.launch.py

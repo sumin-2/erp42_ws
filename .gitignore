@@ -1,3 +1,7 @@
-log/
+# Python cache
+**/__pycache__/
+*.pyc
+
+# Ignore build/install outputs (if you don't want them versioned)
 build/
 install/

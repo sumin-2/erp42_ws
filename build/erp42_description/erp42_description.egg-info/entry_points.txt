@@ -1,4 +1,0 @@
-[console_scripts]
-front_camera_viewer = erp42_description.front_camera_viewer:main
-steering_drive_bridge = erp42_description.steering_drive_bridge:main
-
