@@ -1,13 +1,17 @@
 digraph G {
+"left_back_disk_wheel" -> "left_back_wheel"[label=" Broadcaster: default_authority\nAverage rate: 79.922\nBuffer length: 5.03\nMost recent transform: 1754124985.461905\nOldest transform: 1754124980.432001\n"];
+"structure" -> "left_back_disk_wheel"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"structure" -> "lf_front_steer_link"[label=" Broadcaster: default_authority\nAverage rate: 79.922\nBuffer length: 5.03\nMost recent transform: 1754124985.461905\nOldest transform: 1754124980.432001\n"];
+"structure" -> "rf_front_steer_link"[label=" Broadcaster: default_authority\nAverage rate: 79.922\nBuffer length: 5.03\nMost recent transform: 1754124985.461905\nOldest transform: 1754124980.432001\n"];
+"right_back_disk_wheel" -> "right_back_wheel"[label=" Broadcaster: default_authority\nAverage rate: 79.922\nBuffer length: 5.03\nMost recent transform: 1754124985.461905\nOldest transform: 1754124980.432001\n"];
+"structure" -> "right_back_disk_wheel"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
 "structure" -> "back_camera"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
 "structure" -> "imu_link"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
-"structure" -> "left_back_disk_wheel"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
 "structure" -> "left_camera"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
 "structure" -> "middle_camera"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
-"structure" -> "right_back_disk_wheel"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
 "structure" -> "right_camera"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
 edge [style=invis];
  subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
-"Recorded at time: 1754041892.657735"[ shape=plaintext ] ;
+"Recorded at time: 1754124985.5005658"[ shape=plaintext ] ;
 }->"structure";
 }

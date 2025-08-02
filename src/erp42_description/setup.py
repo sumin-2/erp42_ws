@@ -30,6 +30,7 @@ setup(
         'console_scripts': [
             "front_camera_viewer = erp42_description.front_camera_viewer:main",
             'steering_drive_bridge = erp42_description.steering_drive_bridge:main',
+            'rgbd_fusion = erp42_description.rgbd_fusion:main',
         ],
     },
 )

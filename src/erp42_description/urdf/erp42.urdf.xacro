@@ -238,6 +238,32 @@
         <distortionT2>0.0</distortionT2>
       </plugin>
     </sensor>
+
+    <sensor type="depth" name="middle_native_depth">
+      <update_rate>30.0</update_rate>
+      <pose>0 0 0 0 0 0</pose>
+      <camera name="depth_cam">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <depth>
+          <width>640</width>
+          <height>480</height>
+          <format>Z16</format>
+        </depth>
+        <clip>
+          <near>0.1</near>
+          <far>10.0</far>
+        </clip>
+      </camera>
+    <!-- depth 전용 플러그인 대신 일반 카메라 브리지 시도 -->
+      <plugin name="middle_native_depth_camera_plugin" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30.0</updateRate>
+        <cameraName>/erp42/middle_native_depth</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>middle_camera</frameName>
+      </plugin>
+    </sensor>
   </gazebo>
 
   <gazebo reference="back_camera">
