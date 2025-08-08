@@ -64,11 +64,10 @@ class RGBDProjectiveFusion(Node):
         self.pub = self.create_publisher(PointCloud2, '/rgbd/pointcloud', 10)
         self.get_logger().info("Started RGBD projective fusion node (no sensor_msgs_py).")
 
-        # X축 +90도 회전 행렬 (앞면이 아래를 보는 것을 바로잡기)
         self.R_correction = np.array([
-            [1, 0, 0],
-            [ 0, 1, 0],
-            [ 0,  0,  1]
+            [1,  0,       0],
+            [0,  0,  -1],
+            [0,  1,   0],
         ])
 
 

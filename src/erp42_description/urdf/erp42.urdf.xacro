@@ -122,7 +122,7 @@
   <xacro:my_camera prefix="right"/>
   <xacro:my_camera prefix="left"/>
   <xacro:my_camera prefix="back"/>
-  <xacro:camera_joint prefix="middle" x="1.0" y="0" z="0.3" roll="0" pitch="0" yaw="0"/>
+  <xacro:camera_joint prefix="middle" x="0.3" y="0" z="0.3" roll="0" pitch="0" yaw="0"/>
   <xacro:camera_joint prefix="left" x="0.05" y="0.10" z="0.3" roll="0" pitch="0" yaw="0.785"/>
   <xacro:camera_joint prefix="right" x="0.05" y="-0.10" z="0.3" roll="0" pitch="0" yaw="-0.785"/>
   <xacro:camera_joint prefix="back" x="-0.05" y="0" z="0.4" roll="0" pitch="0" yaw="3.1414"/>
@@ -245,10 +245,18 @@
       <camera name="depth_cam">
         <horizontal_fov>1.3962634</horizontal_fov>
         <depth>
-          <width>640</width>
-          <height>480</height>
+          <width>800</width>
+          <height>800</height>
           <format>Z16</format>
         </depth>
+
+      <!-- 플러그인이 읽어갈 해상도·포맷 (depth 이미지로 퍼블리시) -->
+        <image>
+          <width>800</width>
+          <height>800</height>
+        <!-- 16비트 정수 depth → encoding: 16UC1 -->
+          <format>R8G8B8</format>
+        </image>
         <clip>
           <near>0.1</near>
           <far>10.0</far>
